@@ -6,27 +6,27 @@ using UnityEngine.UI;
 
 public class PurchaseManager : MonoBehaviour {
 
-	Text gold;
+	Text _gold;
 
 	void Awake()
 	{
 		PurchaseObject.SendPurchase += MakePurchase;
 	}
 	void Start () {
-		gold = GetComponent<Text>();
-		gold.text = "$" + GameData.Instance.gold.ToString();
+		_gold = GetComponent<Text>();
+		_gold.text = "$" + GameData.Instance.gold.ToString();
 		BuyGold.AddGold += AddGoldHandler;
 	}
 
     private void AddGoldHandler()
     {
-        gold.text = "$" + GameData.Instance.gold.ToString();
+        _gold.text = "$" + GameData.Instance.gold.ToString();
     }
 
-    public void MakePurchase (int _cost, GameObject _object) {
+    public void MakePurchase (int cost, GameObject _object) {
 		if (GameData.Instance.gold > 0)
 		{
-			GameData.Instance.gold -= _cost;
+			GameData.Instance.gold -= cost;
 			GameData.Instance.purchases.Add(_object.name);
 			print(_object.name);
 			
@@ -36,7 +36,7 @@ public class PurchaseManager : MonoBehaviour {
 			}
 
 
-			gold.text = "$" + GameData.Instance.gold.ToString();
+			_gold.text = "$" + GameData.Instance.gold.ToString();
 			print(GameData.Instance.purchases.Count);
 		}
 	}
