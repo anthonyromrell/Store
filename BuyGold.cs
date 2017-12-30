@@ -6,9 +6,11 @@ using UnityEngine.Events;
 public class BuyGold : MonoBehaviour {
 
 	public static UnityAction AddGold;
+	
+	public Store MyStore;
 
-	public void BuyGoldFunction (int _gold) {
-		GameData.Instance.gold += _gold;
+	public void BuyGoldFunction (int gold) {
+		MyStore.Gold += gold;
 		AddGold();
 	}
 }

@@ -4,7 +4,7 @@ public class GameController : MonoBehaviour {
 
 	void Awake () {
 
-		print(GameData.Instance.purchases.Count);
+	//	print(GameData.Instance.purchases.Count);
 		//StaticVars.gameData.GetPlayerPrefs();
 	}
 

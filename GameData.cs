@@ -1,22 +1,13 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class GameData
+[CreateAssetMenu]
+public class GameData : SaveData
 {
-    GameData () {
+    public const string PlayerPrefsIdentifier = "GameData";
 
-    }
+    public Store MyStore;
 
-    public bool hasKey = false;
-    public const string playerPrefsIdentifier = "GameData";
-    public string playerName;
-    public int totalScore;
-    public int lives;
-    public float health;
-    public int gold;
-    public Vector3 checkPoint;
-    public List<string> purchases;
     private static GameData _instance;
     public static GameData Instance
     {
@@ -32,22 +23,27 @@ public class GameData
 
     public static void GetPlayerPrefs()
     {
-        if (string.IsNullOrEmpty(PlayerPrefs.GetString(playerPrefsIdentifier)))
+        if (string.IsNullOrEmpty(PlayerPrefs.GetString(PlayerPrefsIdentifier)))
         {
-            _instance = new GameData();
+            _instance = ScriptableObject.CreateInstance<GameData>();
         } else
         {
-            _instance = JsonUtility.FromJson<GameData>(PlayerPrefs.GetString(playerPrefsIdentifier));
+            _instance = JsonUtility.FromJson<GameData>(PlayerPrefs.GetString(PlayerPrefsIdentifier));
         }
     }
 
     public static void SetPlayerPrefs()
     {
-        PlayerPrefs.SetString(playerPrefsIdentifier, JsonUtility.ToJson(_instance));
+        PlayerPrefs.SetString(PlayerPrefsIdentifier, JsonUtility.ToJson(_instance));
     }
     public void SaveData()
     {
         string gameDataAsJson = JsonUtility.ToJson(this);
-        PlayerPrefs.SetString(playerPrefsIdentifier, gameDataAsJson);
+        PlayerPrefs.SetString(PlayerPrefsIdentifier, gameDataAsJson);
     }
+}
+
+public abstract class SaveData: ScriptableObject
+{
+    
 }

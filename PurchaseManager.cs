@@ -4,40 +4,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PurchaseManager : MonoBehaviour {
+public class PurchaseManager : MonoBehaviour
+{
 
-	Text _gold;
+	public Store MyStore;
+	
+	private Text _gold;
 
-	void Awake()
+	private void Awake()
 	{
 		PurchaseObject.SendPurchase += MakePurchase;
 	}
-	void Start () {
+
+	private void Start () {
 		_gold = GetComponent<Text>();
-		_gold.text = "$" + GameData.Instance.gold.ToString();
+		_gold.text = "$" + MyStore.Gold.ToString();
 		BuyGold.AddGold += AddGoldHandler;
 	}
 
     private void AddGoldHandler()
     {
-        _gold.text = "$" + GameData.Instance.gold.ToString();
+        _gold.text = "$" + MyStore.Gold.ToString();
     }
 
-    public void MakePurchase (int cost, GameObject _object) {
-		if (GameData.Instance.gold > 0)
-		{
-			GameData.Instance.gold -= cost;
-			GameData.Instance.purchases.Add(_object.name);
-			print(_object.name);
+	private void MakePurchase (PurchaseableBase purchase) {
+		if (MyStore.Gold <= 0) return;
+		MyStore.Gold -= purchase.Price;
+		MyStore.Purchases.Add(purchase);
+		print(purchase.name);
 			
-			foreach (var item in GameData.Instance.purchases)
-			{
-				print(item);
-			}
-
-
-			_gold.text = "$" + GameData.Instance.gold.ToString();
-			print(GameData.Instance.purchases.Count);
+		foreach (var item in MyStore.Purchases)
+		{
+			print(item);
 		}
+
+
+		_gold.text = "$" + MyStore.Gold.ToString();
+		print(MyStore.Purchases.Count);
 	}
 }

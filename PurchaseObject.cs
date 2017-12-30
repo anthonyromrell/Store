@@ -6,15 +6,13 @@ using UnityEditor;
 
 public class PurchaseObject : MonoBehaviour {
 
-	public static UnityAction<int, GameObject> SendPurchase;
-	public int price;
-	public GameObject purchacedObject;
-
-	public PurchaseManager purchaseManager;
+	public static UnityAction<PurchaseableBase> SendPurchase;
+	
+	public Store MyStore;
+	public PurchaseableBase MyPurchase;
 
 	public void MakePurchase () {
-
-		//GameData.Instance.purchases = null;
-		SendPurchase(price, purchacedObject);
+		MyStore.Purchases = null;
+		SendPurchase(MyPurchase);
 	}
 }
