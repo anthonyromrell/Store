@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42760e48b4d8e4bff989c18c5a79a467, type: 3}
+  m_Name: StoreButtons
+  m_EditorClassIdentifier: 
+  Items:
+  - {fileID: 11400000, guid: 43e3fdd49b08c43859f5e23331af50fd, type: 2}
+  - {fileID: 11400000, guid: bc99b7da4c414424fb87e6bbfe0972e5, type: 2}
+  - {fileID: 11400000, guid: 4a6cfe475d42e4701b61358d78536eac, type: 2}
+  Item: {fileID: 1555064766439810, guid: c3ab0da5aa88d4e00afe22282b1a7bf2, type: 2}
