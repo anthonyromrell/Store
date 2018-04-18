@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu]
-public class GameData : SaveData
+public class GameData : ScriptableObject
 {
     public const string PlayerPrefsIdentifier = "GameData";
 
@@ -41,9 +41,4 @@ public class GameData : SaveData
         string gameDataAsJson = JsonUtility.ToJson(this);
         PlayerPrefs.SetString(PlayerPrefsIdentifier, gameDataAsJson);
     }
-}
-
-public abstract class SaveData: ScriptableObject
-{
-    
 }
