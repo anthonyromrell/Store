@@ -4,7 +4,7 @@ using UnityEngine;
 public abstract class PlayerStoreDataBase : ScriptableObject
 {
 
-	public List<PurchaseableObjectBase> PurchasedList;
+	public List<Purchaseable> PurchasedList;
 
 
 }

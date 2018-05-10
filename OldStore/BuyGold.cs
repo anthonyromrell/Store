@@ -10,7 +10,7 @@ public class BuyGold : MonoBehaviour {
 	public Store MyStore;
 
 	public void BuyGoldFunction (int gold) {
-		MyStore.Gold += gold;
+//		MyStore.Gold += gold;
 		AddGold();
 	}
 }
