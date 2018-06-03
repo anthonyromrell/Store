@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 
-public class CoinBase : ScriptableObject {
-
-	
+public class CoinBase : ScriptableObject
+{
 }

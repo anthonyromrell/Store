@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [ExecuteInEditMode]
-public class GameDataView : MonoBehaviour {
-
+public class GameDataView : MonoBehaviour
+{
 //	void Awake()
 //	{
 //		GetData();

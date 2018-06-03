@@ -1,4 +1,4 @@
 public interface IGameData
 {
-    bool hasKey {get;set;}
+    bool hasKey { get; set; }
 }

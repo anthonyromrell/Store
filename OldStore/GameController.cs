@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
 
-public class GameController : MonoBehaviour {
+public class GameController : MonoBehaviour
+{
+    private void Awake()
+    {
+        //	print(GameData.Instance.purchases.Count);
+        //StaticVars.gameData.GetPlayerPrefs();
+    }
 
-	void Awake () {
-
-	//	print(GameData.Instance.purchases.Count);
-		//StaticVars.gameData.GetPlayerPrefs();
-	}
-
-	void OnDestroy()
-	{
-		//GameData.Instance.purchases = null;
-		//GameData.SetPlayerPrefs();
-		//StaticVars.gameData.purchases = null;
-		//StaticVars.gameData.SetPlayerPrefs();
-	}
- }
+    private void OnDestroy()
+    {
+        //GameData.Instance.purchases = null;
+        //GameData.SetPlayerPrefs();
+        //StaticVars.gameData.purchases = null;
+        //StaticVars.gameData.SetPlayerPrefs();
+    }
+}
